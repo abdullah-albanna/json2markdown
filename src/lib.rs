@@ -1,3 +1,4 @@
+use inflections::Inflect;
 use serde_json::{Map, Value};
 
 #[derive(Clone, Copy)]
@@ -67,7 +68,7 @@ impl MarkdownRenderer {
 
             let formatted_key = match new_style {
                 RenderStyle::Section | RenderStyle::Subsection => {
-                    format!("{}{}{}\n\n", indent, header_marker, key.to_uppercase())
+                    format!("{}{}{}\n\n", indent, header_marker, key.to_title_case())
                 }
 
                 RenderStyle::ListItem => format!("{}- **{}**", indent, key),
