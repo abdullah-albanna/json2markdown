@@ -17,7 +17,7 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-json_to_markdown = "0.1.0"
+json2markdown = "0.1.0"
 serde_json = "1"
 ```
 
@@ -25,7 +25,7 @@ serde_json = "1"
 
 ```rust
 use serde_json::Value;
-use json_markdown_renderer::MarkdownRenderer;
+use json2markdown::MarkdownRenderer;
 
 fn main() {
     let json: Value = serde_json::from_str(r#"{"title": "My Project"}"#).unwrap();
