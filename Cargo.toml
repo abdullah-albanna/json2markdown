@@ -1,6 +1,6 @@
 [package]
 name = "json2markdown"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 description = "A Rust library to convert JSON data into well-structured Markdown format."
 license = "MIT"
@@ -14,9 +14,65 @@ categories = ["text-processing", "parsing"]
 
 [dependencies]
 serde = { version = "1", features = ["derive"] }
-serde_json = "1"
 inflections = "1"
+serde_json = { version = "1.0", features = ["preserve_order"] }
+fancy-regex = "0.14"
+once_cell = "1.20"
 
 [lib]
 name = "json2arkdown"
 crate-type = ["lib"]
+
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+
+# General lints
+module_name_repetitions = "allow"  
+unwrap_used = "warn"               
+#expect_used = "warn"              
+float_cmp = "warn"                 
+cast_lossless = "warn"             
+cast_possible_truncation = "warn"  
+cast_possible_wrap = "warn"        
+cast_sign_loss = "warn"            
+clone_on_ref_ptr = "warn"          
+explicit_into_iter_loop = "warn"   
+
+# Style and readability lints
+needless_return = "warn"           
+needless_late_init = "warn"        
+redundant_else = "warn"            
+missing_const_for_fn = "warn"      
+manual_memcpy = "warn"             
+
+# Error handling
+result_map_or_into_option = "warn" 
+map_unwrap_or = "warn"             
+
+# Performance lints
+inline_always = "warn"             
+large_enum_variant = "warn"        
+vec_init_then_push = "warn"        
+string_add = "warn"                
+
+# Correctness
+almost_swapped = "warn"            
+misrefactored_assign_op = "warn"   
+absurd_extreme_comparisons = "warn"
+
+# Suggestions for idiomatic Rust
+useless_conversion = "warn"        
+redundant_clone = "warn"           
+if_not_else = "warn"               
+needless_borrow = "warn"           
+
+# Safety
+drop_ref = "warn"                  
+match_wild_err_arm = "warn"        
+shadow_unrelated = "warn"          
+
+# Documentation
+missing_docs_in_private_items = "allow"  
+missing_panics_doc = "warn"              
+missing_errors_doc = "warn"              

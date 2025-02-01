@@ -1,0 +1,95 @@
+
+{
+  "metadata": {
+    "version": "1.0",
+    "generated_at": "2025-02-01T12:34:56Z",
+    "description": "A complex JSON structure for testing Markdown rendering. Totaly not from AI"
+  },
+  "users": [
+    {
+      "id": 1,
+      "name": "Alice Wonderland",
+      "email": "alice@example.com",
+      "bio": "Software engineer & open-source enthusiast. Loves Rust & Linux.\n\nContributor to various projects.",
+      "website": "https://example.dev",
+      "settings": {
+        "theme": "dark",
+        "notifications": {
+          "email": true,
+          "sms": false
+        }
+      },
+      "posts": [
+        {
+          "id": 101,
+          "title": "Rust Performance Tips",
+          "content": "Rust is fast, but there are ways to make it even faster. Here are some tips: . Use `#[inline(always)]` where necessary. \n\nPrefer stack allocation over heap. \n\nProfile your code with `perf`.\n\nCheck out the full guide here: https://rust-lang.org/performance",
+          "tags": ["Rust", "Performance", "Optimization"],
+          "comments": [
+            {
+              "user": "Bob",
+              "message": "Great tips! I also found that using `rayon` can improve performance in parallel tasks."
+            },
+            {
+              "user": "Charlie",
+              "message": "Would love to see an example of using `unsafe` for optimization!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Bob Builder",
+      "email": "bob@example.com",
+      "bio": "Builder of things. Rustacean in training.",
+      "website": null,
+      "settings": {
+        "theme": "light",
+        "notifications": {
+          "email": false,
+          "sms": true
+        }
+      },
+      "posts": [
+        {
+          "id": 202,
+          "title": "Building CLI tools in Rust",
+          "tags": ["Rust", "CLI", "Tools"],
+          "content": "Building CLI tools with Rust is easy with `clap` and `structopt`.\n\nStart by adding the dependency:\n```toml\n[dependencies]\nclap = \"4.0\"\n```\nThen define your CLI options:\n```rust\nuse clap::{App, Arg};\n\nfn main() {\n    let matches = App::new(\"My CLI\")\n        .version(\"1.0\")\n        .author(\"Bob Builder <bob@example.com>\")\n        .about(\"Does awesome things\")\n        .arg(Arg::new(\"input\")\n             .about(\"The input file\")\n             .required(true)\n             .index(1))\n        .get_matches();\n\n    let input = matches.value_of(\"input\").unwrap();\n    println!(\"Processing file: {}\", input);\n}\n```"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "total_users": 2,
+    "total_posts": 2,
+    "average_comments_per_post": 1.5,
+    "popular_tags": ["Rust", "CLI", "Performance"],
+    "random_numbers": [42, 3.14159, 2.71828, 1e6, -273.15],
+    "unicode_test": "日本語, 한국어, русский, العربية, emojis 🎉🚀🔥"
+  },
+  "nested": {
+    "level_1": {
+      "level_2": {
+        "level_3": {
+          "array": [
+            {
+              "deep_key": "deep_value",
+              "numbers": [1, 2, 3, 4, 5],
+              "bools": [true, false, null],
+              "nested_obj": {
+                "key": "value",
+                "sub_array": ["a", "b", "c"]
+              }
+            },
+            {
+              "deep_key": "another_value",
+              "complex_string": "This is a long sentence. It should be properly split by your Markdown renderer! And this? Another sentence. Testing... 1, 2, 3."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

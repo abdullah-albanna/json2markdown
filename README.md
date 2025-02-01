@@ -17,7 +17,9 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-json2markdown = "0.1.0"
+json2markdown = "0.2.0"
+
+# use the ``preserve_order`` feature if the ordering is needed
 serde_json = "1"
 ```
 
@@ -28,12 +30,12 @@ use serde_json::Value;
 use json2markdown::MarkdownRenderer;
 
 fn main() {
-    let json: Value = serde_json::from_str(r#"{"title": "My Project"}"#).unwrap();
+    let json = serde_json::from_str(r#"{"title": "My Project"}"#).unwrap();
 
-    let renderer = MarkdownRenderer::new(1, 2);
+    let renderer = MarkdownRenderer::default();
     let markdown = renderer.render(&json);
 
-    println!("{}", markdown);
+    println!("{markdown}");
 }
 ```
 
@@ -44,7 +46,7 @@ fn main() {
 You can customize indentation by adjusting the parameters:
 
 ```rust
-// 1 space base indentation, 2 spaces for nested items
+// 1 space base indentation, 2 spaces for the depth
 let renderer = MarkdownRenderer::new(1, 2);
 ```
 
@@ -65,7 +67,7 @@ let complex_json = serde_json::json!({
     }
 });
 
-let renderer = MarkdownRenderer::new(1, 2);
+let renderer = MarkdownRenderer::default();
 let markdown = renderer.render(&complex_json);
 ```
 
