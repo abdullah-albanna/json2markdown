@@ -160,7 +160,7 @@ impl MarkdownRenderer {
 
                     // we don't touch it if it's a url
                     let s = if value.starts_with("http") {
-                        value.to_string()
+                        format!("{indent}{value}")
                     } else {
                         let is_in_root = depth_increment == 0;
                         let adjusted_depth = if is_in_root { 0 } else { depth + 2 };
