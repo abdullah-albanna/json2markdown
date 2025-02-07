@@ -17,7 +17,7 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-json2markdown = "0.2.0"
+json2markdown = "0.2.1"
 
 # use the ``preserve_order`` feature if the ordering is needed
 serde_json = "1"
